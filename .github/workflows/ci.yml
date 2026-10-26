@@ -14,7 +14,7 @@ permissions:
 
 jobs:
   python:
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, linux, x64]
     strategy:
       fail-fast: false
       matrix:
@@ -47,7 +47,7 @@ jobs:
         run: uv run pytest tests/ -v --ignore=tests/evals --ignore=tests/test_integration.py
 
   ui:
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, linux, x64]
     defaults:
       run:
         working-directory: ui/mira
@@ -74,7 +74,7 @@ jobs:
     # Build the unified UI+backend image and smoke-test it boots. Catches
     # packaging issues (missing extras, broken Dockerfile, bad UI assets)
     # before they hit a release tag.
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, linux, x64]
     steps:
       - uses: actions/checkout@v7
 

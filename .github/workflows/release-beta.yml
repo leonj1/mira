@@ -18,7 +18,7 @@ jobs:
 
   build-and-push:
     needs: evals # ← only builds/pushes if the eval gate is green
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, linux, x64]
     permissions:
       contents: read
       packages: write
